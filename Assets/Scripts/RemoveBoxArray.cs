@@ -12,7 +12,8 @@ namespace Assets.Scripts
             if (_isActive)
                 return;
             _isActive = true;
-            collision.gameObject.transform.SetParent(null);
+            if (collision.gameObject.tag != "dummy")
+                collision.gameObject.transform.SetParent(null);
             StartCoroutine(WaitASecondForDestroy(collision.gameObject));
         }
 
